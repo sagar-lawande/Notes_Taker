@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.left-panel {
+    background: linear-gradient(135deg, #38bdf8, #0f172a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.brand-box h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.brand-box p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.right-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-card h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.form-card p {
+    margin-bottom: 30px;
+    color: #cbd5e1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #38bdf8;
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #0ea5e9;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+
+    .left-panel {
+        min-height: 200px;
+        text-align: center;
+    }
+
+    .brand-box h1 {
+        font-size: 36px;
+    }
+}
+
+/* =========================================
+   PREMIUM LOGIN PAGE ENHANCEMENT
+   Add at END of existing CSS
+========================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animated background */
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    background-size: 300% 300%;
+    animation: loginBgMove 12s ease infinite;
+    padding: 20px;
+}
+
+@keyframes loginBgMove {
+    0% { background-position: left; }
+    50% { background-position: right; }
+    100% { background-position: left; }
+}
+
+/* Premium login card */
+.login-container {
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* Better left branding */
+.left-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.left-panel::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    top: -60px;
+    left: -60px;
+    filter: blur(30px);
+}
+
+.left-panel::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(56,189,248,0.10);
+    bottom: -40px;
+    right: -40px;
+    filter: blur(25px);
+}
+
+.brand-box h1 {
+    background: linear-gradient(90deg, #ffffff, #dbeafe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-box p {
+    color: #e2e8f0;
+    max-width: 420px;
+}
+
+/* Right form premium */
+.form-card h1 {
+    font-size: 40px;
+}
+
+.form-card p {
+    line-height: 1.6;
+}
+
+/* Better inputs */
+input[type="email"],
+input[type="password"] {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+/* Better button */
+input[type="submit"] {
+    transition: 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(56,189,248,0.25);
+}
+
+/* Extra utility links style */
+.extra-links {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.extra-links a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+@media (max-width: 992px) {
+    .login-container {
+        max-width: 900px;
+    }
+
+    .brand-box h1 {
+        font-size: 40px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .login-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        border-radius: 18px;
+    }
+
+    .left-panel {
+        min-height: 220px;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .right-panel {
+        padding: 25px 18px;
+    }
+
+    .form-card h1 {
+        font-size: 30px;
+    }
+
+    .form-card p {
+        font-size: 14px;
+    }
+
+    .brand-box h1 {
+        font-size: 30px;
+    }
+
+    .brand-box p {
+        font-size: 14px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .extra-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+@media (max-width: 480px) {
+    .brand-box h1 {
+        font-size: 26px;
+    }
+
+    .form-card h1 {
+        font-size: 26px;
+    }
+
+    .left-panel {
+        min-height: 180px;
+    }
+}

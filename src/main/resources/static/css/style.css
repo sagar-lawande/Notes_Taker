@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #38bdf8;
+    color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+.register-btn,
+.primary-btn {
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeInLeft 1s ease;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: #cbd5e1;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons a {
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.secondary-btn {
+    border: 1px solid #38bdf8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.hero-image img {
+    width: 520px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+.stats-section {
+    padding: 60px;
+}
+
+.stats-section h2,
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.cards,
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.card,
+.feature-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.card:hover,
+.feature-box:hover {
+    transform: translateY(-8px);
+}
+
+.card p {
+    font-size: 34px;
+    font-weight: bold;
+    color: #38bdf8;
+    margin-top: 10px;
+}
+
+.features {
+    padding: 60px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #94a3b8;
+}
+
+.animate-up {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.delay1 { animation-delay: 0.2s; }
+.delay2 { animation-delay: 0.4s; }
+.delay3 { animation-delay: 0.6s; }
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .cards,
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-image img {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   PREMIUM LANDING PAGE ENHANCEMENT LAYER
+   Add at END of existing CSS
+========================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animated premium background */
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: left; }
+    50% { background-position: right; }
+    100% { background-position: left; }
+}
+
+/* Navbar premium */
+.navbar {
+    z-index: 999;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a {
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background: rgba(56, 189, 248, 0.08);
+}
+
+/* Hero section premium */
+.hero {
+    min-height: 85vh;
+}
+
+.hero-content h1 {
+    background: linear-gradient(90deg, #ffffff, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+/* Buttons premium hover */
+.primary-btn,
+.secondary-btn,
+.register-btn {
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover,
+.register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+}
+
+.secondary-btn:hover {
+    background: rgba(56, 189, 248, 0.08);
+}
+
+/* Image premium */
+.hero-image img {
+    max-width: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Cards glow effect */
+.card,
+.feature-box {
+    backdrop-filter: blur(10px);
+}
+
+.card:hover,
+.feature-box:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Extra section feel */
+.features {
+    position: relative;
+}
+
+.features::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(56,189,248,0.06), transparent 60%);
+    pointer-events: none;
+}
+
+/* Footer premium */
+footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 40px;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 20px 25px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 50px 25px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        margin: auto;
+        margin-bottom: 25px;
+    }
+
+    .cards,
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-section,
+    .features {
+        padding: 50px 25px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 18px 15px;
+    }
+
+    .logo-section h2 {
+        font-size: 20px;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+    }
+
+    nav a {
+        white-space: nowrap;
+        min-width: fit-content;
+    }
+
+    .hero {
+        padding: 40px 15px;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-buttons a {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .cards,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card p {
+        font-size: 28px;
+    }
+
+    .stats-section h2,
+    .features h2 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 34px;
+        height: 34px;
+    }
+}

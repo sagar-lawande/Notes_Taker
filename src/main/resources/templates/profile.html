@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>profile</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="brand">✓ ToDoPro</div>
+            <nav>
+                <a href="#">Dashboard</a>
+                <a href="#tasks">My Tasks</a>
+                <a href="#progress">Progress</a>
+                <a href="#notes">Quick Notes</a>
+                <a href="#modifyTask">Modify Task</a>
+                <a href="#deleteTask">Delete Task</a>
+                <a href="index.html">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Welcome <span th:text="${loggedInUser.name}"></span> 👋</h1>
+                <p>Your productivity workspace for tasks, notes, and progress tracking.</p>
+            </header>
+
+			<section class="stats-grid" id="progress">
+			    <div class="stat-card">
+			        <h3>Total Tasks</h3>
+			        <p th:text="${totalTasks}"></p>
+			    </div>
+			    <div class="stat-card">
+			        <h3>Completed</h3>
+			        <p th:text="${completedTasks}"></p>
+			    </div>
+			    <div class="stat-card">
+			        <h3>Remaining</h3>
+			        <p th:text="${pendingTasks}"></p>
+			    </div>
+			    <div class="stat-card">
+			        <h3>Today Focus</h3>
+			        <p th:text="${todayFocus}"></p>
+			    </div>
+			</section>
+			
+			
+            <section class="content-grid">
+				<div class="task-panel" id="tasks">
+				    <h2>My Tasks</h2>
+
+				    <div class="task-item advanced-task" th:each="task : ${tasks}">
+				        <div class="task-main">
+				            <div class="task-top">
+				                <span class="task-title" th:text="${task.title}"></span>
+
+				                <!-- Toggle status -->
+				                <form th:action="@{/completeTask/{id}(id=${task.id})}" method="post">
+				                    <button type="submit"
+				                            class="badge clickable-badge"
+				                            th:classappend="${task.completed} ? 'done' : 'pending'"
+				                            th:text="${task.completed} ? 'Completed' : 'Pending'">
+				                    </button>
+				                </form>
+				            </div>
+
+				            <!-- Description Toggle -->
+				            <details class="task-details">
+				                <summary>View Description</summary>
+				                <p th:text="${task.description}"></p>
+				            </details>
+				        </div>
+				    </div>
+
+				    <!-- ⭐ Quick Notes List section BELOW My Tasks -->
+				    <div class="task-notes-list">
+				        <h2>Quick Notes List</h2>
+
+				        <div class="note-card" th:each="note : ${notes}">
+				            <p th:text="${note.content}"></p>
+				        </div>
+				    </div>
+				</div>
+
+				<div class="notes-panel" id="notes">
+				    <h2>Quick Notes</h2>
+
+				    <form action="/saveNote" method="post">
+				        <textarea name="content" placeholder="Write your important note here..."></textarea>
+				        <button type="submit">Save Note</button>
+				    </form>
+
+				    <form action="/addTask" method="post">
+				        <input type="text" name="taskName" placeholder="Enter task title" required>
+				        <textarea name="description" placeholder="Task description"></textarea>
+				        <button type="submit">Add Task</button>
+				    </form>
+				</div>
+            </section>
+
+            <!-- Modify Task Panel -->
+            <section class="extra-grid">
+				<div class="modify-panel" id="modifyTask">
+				    <h2>Modify Task</h2>
+				    <form th:action="@{/updateTask/1}" method="post">
+				        <input type="text" name="taskName" placeholder="Update task title">
+				        <textarea name="description" placeholder="Update task description"></textarea>
+				        <button type="submit">Update Task</button>
+				    </form>
+				</div>
+
+				<div class="delete-panel" id="deleteTask">
+				    <h2>Delete Task</h2>
+
+				    <div class="delete-task-list">
+				        <div class="delete-task-item" th:each="task : ${tasks}">
+				            <span class="delete-task-title" th:text="${task.title}"></span>
+
+				            <form th:action="@{/deleteTask/{id}(id=${task.id})}" method="post">
+				                <button type="submit" class="delete-btn small-delete-btn">
+				                    Delete
+				                </button>
+				            </form>
+				        </div>
+				    </div>
+				</div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
