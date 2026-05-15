@@ -8,6 +8,6 @@ RUN chmod +x mvnw
 
 RUN ./mvnw clean package
 
-EXPOSE 8082
+EXPOSE 8080
 
 CMD ["java", "-jar", "target/To_Do_Application_Project-0.0.1-SNAPSHOT.jar"]
